@@ -1,7 +1,7 @@
 
 class Calculator {
 
-    // this is my comment
+    // this is my comment to trigger the tests
     Calculator(){
 
     }
