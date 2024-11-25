@@ -6,10 +6,9 @@ public class Main {
         System.out.println("Enter a command:");
         Calculator calculator = new Calculator();
         int result;
-        Scanner scanner = new Scanner(System.in);
-
         boolean exit = false;
         while(!exit) {
+            Scanner scanner = new Scanner(System.in);
             if (scanner.hasNextLine()) {
                 String input = scanner.nextLine();
                 String[] parts = input.split(" ");
@@ -45,11 +44,11 @@ public class Main {
                         System.out.println(binary);
                         break;
                     case "exit":
-                        exit = true;
-                        break;
+                            exit = true;
+                            scanner.close();
+                            break;
                 }
             }
         }
-        scanner.close();
     }
 }
