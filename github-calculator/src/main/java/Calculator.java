@@ -1,6 +1,6 @@
 class Calculator {
 
-    // this is my comment to trigger the tests
+    // change the structure
     Calculator(){
 
     }
