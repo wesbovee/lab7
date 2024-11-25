@@ -1,4 +1,3 @@
-
 class Calculator {
 
     // this is my comment to trigger the tests
@@ -39,7 +38,23 @@ class Calculator {
     etc
      */
     int fibonacciNumberFinder(int n){
-        return 0;
+        if (n <= 0) {
+            throw new IllegalArgumentException("n must be positive");
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+
+        int prev = 1;
+        int curr = 1;
+
+        for (int i = 3; i <= n; i++) {
+            int next = prev + curr;
+            prev = curr;
+            curr = next;
+        }
+
+        return curr;
     }
 
 
@@ -51,7 +66,7 @@ class Calculator {
     if int a = 16 then this method returns: 10000
      */
     String intToBinaryNumber(int number){
-        return null;
+        return Integer.toBinaryString(number);
     }
 
     /*
@@ -63,8 +78,22 @@ class Calculator {
     if you run this function twice with the same String input, it must return 2 unique String IDs
      */
     String createUniqueID(String n){
-        return null;
+        if (n == null) {
+            throw new IllegalArgumentException("Input string cannot be null");
+        }
+
+        // Use current timestamp and random number for uniqueness
+        long timestamp = System.currentTimeMillis();
+        int random = (int)(Math.random() * 1000);
+
+        // Create a random suffix of alphanumeric characters
+        String alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder suffix = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            suffix.append(alphabet.charAt((int)(Math.random() * alphabet.length())));
+        }
+
+        // Combine the original string with the unique elements
+        return n + timestamp + random + suffix.toString();
     }
-
-
 }
